@@ -8,7 +8,7 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit React<code>src/App.js</code> and save to reload.
+          Raact test<code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
