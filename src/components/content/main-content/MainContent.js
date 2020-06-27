@@ -2,22 +2,87 @@ import React, { useState } from 'react';
 import './MainContent.scss';
 import Slideshow from '../slide-show/Slideshow';
 import Paginate from '../paginate/Paginate';
+import Grid from '../grid/Grid';
 
 const MainContent = () => {
   const images = [
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTAcR87zzk3AgOkFp5VeA6GTJuMkUpnSIi76A&usqp=CAU'
+      url: 'https://images.pexels.com/photos/688574/pexels-photo-688574.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 5.5
     },
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSOFiId-5zxEzIIYl0SdcAdhGaHhF46X3hEkQ&usqp=CAU'
+      url: 'https://images.pexels.com/photos/688574/pexels-photo-688574.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 8.5
     },
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGY4huDEZxHuJE5Bh2eK0FRz2r3NxoTfccJA&usqp=CAU'
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 7.8
+    },
+    {
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 9.7
+    },
+    {
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 6.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 8.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/688574/pexels-photo-688574.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 5.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/688574/pexels-photo-688574.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 8.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 7.8
+    },
+    {
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 9.7
+    },
+    {
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 6.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 8.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/688574/pexels-photo-688574.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 5.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/688574/pexels-photo-688574.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 8.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 7.8
+    },
+    {
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 9.7
+    },
+    {
+      url: 'https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 6.5
+    },
+    {
+      url: 'https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      rating: 8.5
     }
   ];
   const [currentPage, setCurrentPage] = useState(1);
+
   const paginate = (type) => {
-    if (type === 'prev' && currentPage > 1) {
+    if (type === 'prev' && currentPage >= 1) {
       setCurrentPage((prev) => prev - 1);
     } else {
       setCurrentPage((prev) => prev + 1);
@@ -26,14 +91,14 @@ const MainContent = () => {
 
   return (
     <div className="main-content">
-      <Slideshow images={images} auto={false} showArrows={true}></Slideshow>
+      <Slideshow images={images} auto={true} showArrows={true} />
       <div className="grid-movie-title">
         <div className="movieType">Now Playing</div>
         <div className="paginate">
-          <Paginate currentPage={currentPage} totalPages={10} paginate={paginate}></Paginate>
+          <Paginate currentPage={currentPage} totalPages={10} paginate={paginate} />
         </div>
       </div>
-      {/* Display grid component */}
+      <Grid images={images} />
     </div>
   );
 };

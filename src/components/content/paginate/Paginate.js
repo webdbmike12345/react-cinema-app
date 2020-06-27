@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -28,6 +27,7 @@ const Paginate = (props) => {
     </>
   );
 };
+
 Paginate.prototype = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
