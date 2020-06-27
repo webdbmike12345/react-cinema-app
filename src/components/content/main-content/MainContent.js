@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import './MainContent.scss';
 import Slideshow from '../slide-show/Slideshow';
 import Paginate from '../paginate/Paginate';
