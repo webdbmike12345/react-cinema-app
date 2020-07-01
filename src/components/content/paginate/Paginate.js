@@ -28,7 +28,7 @@ const Paginate = (props) => {
   );
 };
 
-Paginate.prototype = {
+Paginate.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   paginate: PropTypes.func.isRequired
