@@ -63,8 +63,8 @@ export const movieDetails = (id) => async (dispatch) => {
 };
 
 export const setMovieType = (type) => async (dispatch) => {
-    dispatchMethod(MOVIE_TYPE, type, dispatch);
-  };
+  dispatchMethod(MOVIE_TYPE, type, dispatch);
+};
 
 export const setResponsePageNumber = (page, totalPages) => async (dispatch) => {
   const payload = { page, totalPages };
