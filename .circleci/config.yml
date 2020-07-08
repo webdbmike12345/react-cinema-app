@@ -80,6 +80,16 @@ jobs:
           name: Run Prettier check
           command: npm run prettier:check
 
+  unit-test:
+    executor: app-executor
+    steps:
+      - checkout
+      - *show_current-branch-name
+      - *restore-cache
+      - run:
+          name: Run unit tests
+          command: npm run tests
+
   deploy-to-aws-s3:
     executor: app-executor
     steps:
@@ -152,10 +162,20 @@ workflows:
               only:
                 - develop
                 - staging
-                - master                  
+                - master
+      - unit-test:
+          requires:
+            - linting
+            - prettier
+          filters:
+            branches: 
+              only:
+                - develop
+                - staging
+                - master
       - deploy-to-aws-s3:
           requires:
-            - prettier
+            - unit-test
           filters:
             branches: 
               only:
